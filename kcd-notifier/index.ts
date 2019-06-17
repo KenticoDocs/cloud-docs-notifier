@@ -3,6 +3,7 @@ import {
     Context,
     HttpRequest,
 } from '@azure/functions';
+import { INotification } from './models/INotification';
 import {
     sendErrorNotification,
     sendSuccessNotification,
@@ -12,21 +13,7 @@ import {
     isRequestValid,
 } from './utils/requestValidator';
 
-const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<any> => {
-    if (!isRequestValid(req)) {
-        throw Error('Invalid request! Provide mode, activityTitle and text of notification in the request body.');
-    }
-
-    const {
-        mode,
-        activityTitle,
-        text,
-    } = req.body;
-
-    if (!isModeValid(mode)) {
-       throw Error('Invalid request! Mode should be either error or success.');
-    }
-
+const handleNotificationSending = async ({ activityTitle, text, mode }: INotification): Promise<any> => {
     try {
         if (mode === 'error') {
             await sendErrorNotification(activityTitle, text);
@@ -44,6 +31,18 @@ const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): P
             status: 400,
         };
     }
+};
+
+const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<any> => {
+    if (!isRequestValid(req)) {
+        throw Error('Invalid request! Provide mode, activityTitle and text of notification in the request body.');
+    }
+
+    if (!isModeValid(req.body.mode)) {
+       throw Error('Invalid request! Mode should be either error or success.');
+    }
+
+    return handleNotificationSending(req.body);
 };
 
 export default httpTrigger;
