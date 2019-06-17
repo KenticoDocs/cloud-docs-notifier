@@ -6,25 +6,9 @@ import {
   RedColor,
   SuccessImageUrl,
 } from '../constants';
+import {sendNotificationFactory} from './sendNotificationFactory';
 
-const sendNotification = (themeColor: string, activityImageUrl: string) =>
-  async (activityTitle: string, text: string): Promise<void> => {
-    for (const url of NotificationUrls) {
-      await axios.post(url, {
-        '@@context': 'https://schema.org/extensions',
-        '@@type': 'MessageCard',
-        'sections': [
-          {
-            activityImage: activityImageUrl,
-            activityTitle,
-            text,
-          },
-        ],
-        'summary': 'One Help Portal - notification',
-        'themeColor': themeColor,
-      });
-    }
-  };
+const sendNotification = sendNotificationFactory(axios, NotificationUrls);
 
 export const sendErrorNotification = sendNotification(RedColor, ErrorImageUrl);
 export const sendSuccessNotification = sendNotification(GreenColor, SuccessImageUrl);
