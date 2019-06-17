@@ -13,7 +13,6 @@ import {
 } from './utils/requestValidator';
 
 const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<any> => {
-
     if (!isRequestValid(req)) {
         throw Error('Invalid request! Provide mode, activityTitle and text of notification in the request body.');
     }
