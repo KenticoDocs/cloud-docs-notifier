@@ -13,7 +13,7 @@ import {
     isRequestValid,
 } from './utils/requestValidator';
 
-const handleNotificationSending = async ({ activityTitle, text, mode }: INotification): Promise<any> => {
+const handleNotificationSending = async ({ activityTitle, text, mode }: INotification): Promise<IHttpResponse> => {
     try {
         if (mode === 'error') {
             await sendErrorNotification(activityTitle, text);
@@ -33,7 +33,7 @@ const handleNotificationSending = async ({ activityTitle, text, mode }: INotific
     }
 };
 
-const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<any> => {
+const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<IHttpResponse> => {
     if (!isRequestValid(req)) {
         throw Error('Invalid request! Provide mode, activityTitle and text of notification in the request body.');
     }

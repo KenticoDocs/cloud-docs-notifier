@@ -1,7 +1,8 @@
-import {AxiosResponse} from 'axios';
+import { AxiosResponse } from 'axios';
+import { ITeamsNotificationConfig } from '../models/ITeamsNotificationConfig';
 
 interface IAxiosPost {
-    post: (url: string, config: any) => Promise<AxiosResponse>,
+    readonly post: (url: string, config: ITeamsNotificationConfig) => Promise<AxiosResponse>,
 }
 
 export const sendNotificationFactory = (axios: IAxiosPost, notificationUrls: string[]) =>
@@ -24,7 +25,11 @@ export const sendNotificationFactory = (axios: IAxiosPost, notificationUrls: str
             await notifyChannels(notificationUrls, config, axios);
         };
 
-const notifyChannels = async (notificationUrls: string[], config: any, axios: IAxiosPost): Promise<void> => {
+const notifyChannels = async (
+    notificationUrls: string[],
+    config: ITeamsNotificationConfig,
+    axios: IAxiosPost,
+): Promise<void> => {
     for (const url of notificationUrls) {
         await axios.post(url, config);
     }

@@ -1,5 +1,5 @@
 export interface INotification {
-    activityTitle: string;
-    mode: string;
-    text: string;
+    readonly activityTitle: string;
+    readonly mode: string;
+    readonly text: string;
 }
