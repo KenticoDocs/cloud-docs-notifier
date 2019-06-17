@@ -1,9 +1,11 @@
 import axios from 'axios';
-
-require('dotenv').config();
-
-const NotificationUrlsString = process.env['Teams.NotificationUrls'] || '';
-const NotificationUrls = NotificationUrlsString.split(';');
+import {
+  ErrorImageUrl,
+  GreenColor,
+  NotificationUrls,
+  RedColor,
+  SuccessImageUrl,
+} from '../constants';
 
 const sendNotification = (themeColor: string, activityImageUrl: string) =>
   async (activityTitle: string, text: string): Promise<void> => {
@@ -24,5 +26,5 @@ const sendNotification = (themeColor: string, activityImageUrl: string) =>
     }
   };
 
-export const sendErrorNotification = sendNotification('C93636', 'https://img.icons8.com/color/344/cancel.png');
-export const sendSuccessNotification = sendNotification('36C936', 'https://img.icons8.com/color/344/ok.png');
+export const sendErrorNotification = sendNotification(RedColor, ErrorImageUrl);
+export const sendSuccessNotification = sendNotification(GreenColor, SuccessImageUrl);
