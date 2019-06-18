@@ -1,5 +1,8 @@
 import { HttpRequest } from '@azure/functions';
-import {isModeValid, isRequestValid} from './requestValidator';
+import {
+    isModeValid,
+    isRequestValid,
+} from './requestValidator';
 
 describe('isRequestValid', () => {
 

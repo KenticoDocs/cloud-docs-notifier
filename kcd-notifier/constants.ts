@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const NotificationUrlsString = process.env['Teams.NotificationUrls'] || '';
 
 export const NotificationUrls = NotificationUrlsString.split(';');

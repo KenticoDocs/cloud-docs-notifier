@@ -6,7 +6,7 @@ import {
   RedColor,
   SuccessImageUrl,
 } from '../constants';
-import {sendNotificationFactory} from './sendNotificationFactory';
+import { sendNotificationFactory } from './sendNotificationFactory';
 
 const sendNotification = sendNotificationFactory(axios, NotificationUrls);
 
