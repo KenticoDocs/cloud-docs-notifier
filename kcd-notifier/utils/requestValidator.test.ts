@@ -1,60 +1,80 @@
-import { HttpRequest } from '@azure/functions';
+import { IEventGridEvent } from '../../@types/global';
 import {
+    isEventValid,
     isModeValid,
-    isRequestValid,
 } from './requestValidator';
 
-describe('isRequestValid', () => {
+describe('isEventValid', () => {
 
     test('returns false when activityTitle is missing.', async () => {
-        const request = {
-            body: {
+        const event: IEventGridEvent = {
+            data: {
                 mode: 'error',
                 text: 'test',
             },
+            dataVersion: '1',
+            eventTime: new Date(),
+            eventType: 'type',
+            id: '123',
+            subject: 'request',
         };
 
-        const result = await isRequestValid(request as HttpRequest);
+        const result = await isEventValid(event);
 
         expect(result).toBeFalsy();
     });
 
     test('returns false when text is missing.', async () => {
-        const request = {
-            body: {
+        const event: IEventGridEvent = {
+            data: {
                 activityTitle: 'activityTitle',
                 mode: 'error',
             },
+            dataVersion: '1',
+            eventTime: new Date(),
+            eventType: 'type',
+            id: '123',
+            subject: 'request',
         };
 
-        const result = await isRequestValid(request as HttpRequest);
+        const result = await isEventValid(event);
 
         expect(result).toBeFalsy();
     });
 
     test('returns false when mode is missing.', async () => {
-        const request = {
-            body: {
+        const event: IEventGridEvent = {
+            data: {
                 activityTitle: 'activityTitle',
                 text: 'text',
             },
+            dataVersion: '1',
+            eventTime: new Date(),
+            eventType: 'type',
+            id: '123',
+            subject: 'request',
         };
 
-        const result = await isRequestValid(request as HttpRequest);
+        const result = await isEventValid(event);
 
         expect(result).toBeFalsy();
     });
 
     test('returns true for valid request.', async () => {
-        const request = {
-            body: {
+        const event: IEventGridEvent = {
+            data: {
                 activityTitle: 'activityTitle',
                 mode: 'error',
                 text: 'text',
             },
+            dataVersion: '1',
+            eventTime: new Date(),
+            eventType: 'type',
+            id: '123',
+            subject: 'request',
         };
 
-        const result = await isRequestValid(request as HttpRequest);
+        const result = await isEventValid(event);
 
         expect(result).toBeTruthy();
     });

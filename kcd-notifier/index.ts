@@ -1,19 +1,31 @@
 import {
     AzureFunction,
     Context,
-    HttpRequest,
 } from '@azure/functions';
+import { IEventGridEvent } from '../@types/global';
 import { INotification } from './models/INotification';
 import {
     sendErrorNotification,
     sendSuccessNotification,
 } from './services/NotifyService';
 import {
+    isEventValid,
     isModeValid,
-    isRequestValid,
 } from './utils/requestValidator';
 
-const handleNotificationSending = async ({ activityTitle, text, mode }: INotification): Promise<IHttpResponse> => {
+const eventGridTrigger: AzureFunction = async (context: Context, eventGridEvent: IEventGridEvent): Promise<void> => {
+    if (!isEventValid(eventGridEvent)) {
+        throw 'Invalid request! Provide mode, activityTitle and text of notification in the request body';
+    }
+
+    if (!isModeValid(eventGridEvent.data.mode)) {
+       throw 'Invalid request! Mode should be either error or success.';
+    }
+
+    return sendNotification(eventGridEvent.data);
+};
+
+const sendNotification = async ({ activityTitle, text, mode }: INotification): Promise<void> => {
     try {
         if (mode === 'error') {
             await sendErrorNotification(activityTitle, text);
@@ -21,28 +33,9 @@ const handleNotificationSending = async ({ activityTitle, text, mode }: INotific
             await sendSuccessNotification(activityTitle, text);
         }
 
-        return {
-            body: 'Team channels successfully notified!',
-            status: 200,
-        };
     } catch (error) {
-        return {
-            body: 'Notifying teams channels failed!',
-            status: 400,
-        };
+        throw `Error: ${error.message} ${error.stack}`
     }
 };
 
-const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<IHttpResponse> => {
-    if (!isRequestValid(req)) {
-        throw Error('Invalid request! Provide mode, activityTitle and text of notification in the request body.');
-    }
-
-    if (!isModeValid(req.body.mode)) {
-       throw Error('Invalid request! Mode should be either error or success.');
-    }
-
-    return handleNotificationSending(req.body);
-};
-
-export default httpTrigger;
+export default eventGridTrigger;
