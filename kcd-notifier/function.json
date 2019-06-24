@@ -1,20 +1,11 @@
 {
+  "disabled": false,
   "bindings": [
     {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
     },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
   ],
   "scriptFile": "../dist/kcd-notifier/index.js"
 }
