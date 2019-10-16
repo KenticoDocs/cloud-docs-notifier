@@ -1,10 +1,10 @@
-| [master](https://github.com/Kentico/kentico-cloud-docs-webhooks/tree/master) | [develop](https://github.com/Kentico/kentico-cloud-docs-webhooks/tree/develop) |
+| [master](https://github.com/KenticoDocs/kontent-docs-notifier/tree/master) | [develop](https://github.com/KenticoDocs/kontent-docs-notifier/tree/develop) |
 |:---:|:---:|
-|[![Build Status](https://travis-ci.com/KenticoDocs/cloud-docs-notifier.svg?branch=master)](https://travis-ci.com/KenticoDocs/cloud-docs-notifier/branches) [![codebeat badge](https://codebeat.co/badges/dfc8dc4a-0723-4d7b-9775-9a7ddb5d4efe)](https://codebeat.co/projects/github-com-kenticodocs-cloud-docs-notifier-master) | [![Build Status](https://travis-ci.com/KenticoDocs/cloud-docs-notifier.svg?branch=develop)](https://travis-ci.com/KenticoDocs/cloud-docs-notifier/branches) [![codebeat badge](https://codebeat.co/badges/d6235490-5b23-4ddf-a1a7-94e1bcb5fe84)](https://codebeat.co/projects/github-com-kenticodocs-cloud-docs-notifier-develop) |
+|[![Build Status](https://travis-ci.com/KenticoDocs/kontent-docs-notifier.svg?branch=master)](https://travis-ci.com/KenticoDocs/kontent-docs-notifier/branches) [![codebeat badge](https://codebeat.co/badges/dbf9a25e-658d-4a06-956a-804af7c9709a)](https://codebeat.co/projects/github-com-kenticodocs-kontent-docs-notifier-master) | [![Build Status](https://travis-ci.com/KenticoDocs/kontent-docs-notifier.svg?branch=develop)](https://travis-ci.com/KenticoDocs/kontent-docs-notifier/branches) [![codebeat badge](https://codebeat.co/badges/7b3ca6bc-b1c6-469c-9142-e661920bab23)](https://codebeat.co/projects/github-com-kenticodocs-kontent-docs-notifier-develop) |
 
-# Kentico Cloud Documentation - Notifier
+# Kentico Kontent Documentation - Notifier
 
-Backend service for Kentico Cloud [documentation portal](https://docs.kenticocloud.com/).
+Backend service for Kentico Kontent [documentation portal](https://docs.kontent.ai/).
 
 Service is responsible for notifying defined Microsoft Teams channels.
 
@@ -20,7 +20,7 @@ Service is responsible for notifying defined Microsoft Teams channels.
 
 1. Node (+yarn) installed
 2. Visual Studio Code installed
-3. Subscriptions on MS Azure and Kentico Cloud
+3. Subscriptions on MS Azure and Kentico Kontent
 
 ### Instructions
 
