@@ -1,6 +1,5 @@
-| [master](https://github.com/KenticoDocs/kontent-docs-notifier/tree/master) | [develop](https://github.com/KenticoDocs/kontent-docs-notifier/tree/develop) |
-|:---:|:---:|
-|[![Build Status](https://travis-ci.com/KenticoDocs/kontent-docs-notifier.svg?branch=master)](https://travis-ci.com/KenticoDocs/kontent-docs-notifier/branches) [![codebeat badge](https://codebeat.co/badges/dbf9a25e-658d-4a06-956a-804af7c9709a)](https://codebeat.co/projects/github-com-kenticodocs-kontent-docs-notifier-master) | [![Build Status](https://travis-ci.com/KenticoDocs/kontent-docs-notifier.svg?branch=develop)](https://travis-ci.com/KenticoDocs/kontent-docs-notifier/branches) [![codebeat badge](https://codebeat.co/badges/7b3ca6bc-b1c6-469c-9142-e661920bab23)](https://codebeat.co/projects/github-com-kenticodocs-kontent-docs-notifier-develop) |
+![master](https://github.com/KenticoDocs/kontent-docs-notifier/actions/workflows/master_kcd-notifier-service-live-master.yml/badge.svg)
+![develop](https://github.com/KenticoDocs/kontent-docs-notifier/actions/workflows/develop_kcd-notifier-service-live-dev.yml/badge.svg)
 
 # Kentico Kontent Documentation - Notifier
 
