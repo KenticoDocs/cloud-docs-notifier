@@ -1,9 +1,9 @@
-![master](https://github.com/KenticoDocs/kontent-docs-notifier/actions/workflows/master_kcd-notifier-service-live-master.yml/badge.svg)
-![develop](https://github.com/KenticoDocs/kontent-docs-notifier/actions/workflows/develop_kcd-notifier-service-live-dev.yml/badge.svg)
+![master](https://github.com/Kontent-ai-Learn/kontent-ai-learn-notifier/actions/workflows/master_kcd-notifier-service-live-master.yml/badge.svg)
+![develop](https://github.com/Kontent-ai-Learn/kontent-ai-learn-notifier/actions/workflows/develop_kcd-notifier-service-live-dev.yml/badge.svg)
 
-# Kentico Kontent Documentation - Notifier
+# Kontent.ai Learn - Notifier
 
-Backend service for Kentico Kontent [documentation portal](https://docs.kontent.ai/).
+Backend service for [Kontent.ai Learn](https://kontent.ai/learn/).
 
 Service is responsible for notifying defined Microsoft Teams channels.
 
@@ -19,7 +19,7 @@ Service is responsible for notifying defined Microsoft Teams channels.
 
 1. Node (+yarn) installed
 2. Visual Studio Code installed
-3. Subscriptions on MS Azure and Kentico Kontent
+3. Subscriptions on MS Azure and Kontent.ai
 
 ### Instructions
 
@@ -42,6 +42,6 @@ Service is responsible for notifying defined Microsoft Teams channels.
 
 Feel free to open a new issue where you describe your proposed changes, or even create a new pull request from your branch with proposed changes.
 
-## Licence
+## License
 
-All the source codes are published under MIT licence.
+All the source codes are published under MIT license.
